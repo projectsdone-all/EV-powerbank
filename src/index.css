@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    margin: 0;
+    background: #0a0e1a;
+    color: #f1f5f9;
+    font-family: 'Sora', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(163, 230, 53, 0.3);
+    color: #f1f5f9;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #111827; }
+  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #334155; }
+}
+
+@layer components {
+  .container-main {
+    @apply max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent-green text-brand-dark font-semibold rounded-lg
+    hover:bg-accent-green-bright transition-all duration-200 hover:shadow-lg hover:shadow-accent-green/20
+    focus:outline-none focus:ring-2 focus:ring-accent-green/50 focus:ring-offset-2 focus:ring-offset-brand-dark
+    active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-brand-border-light text-text-primary font-medium rounded-lg
+    hover:bg-brand-elevated hover:border-text-muted transition-all duration-200
+    focus:outline-none focus:ring-2 focus:ring-accent-green/30 focus:ring-offset-2 focus:ring-offset-brand-dark
+    active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-text-secondary font-medium rounded-lg
+    hover:bg-brand-elevated hover:text-text-primary transition-all duration-200;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-500/10 border border-red-500/30 text-red-400 font-medium rounded-lg
+    hover:bg-red-500/20 hover:border-red-500/50 transition-all duration-200;
+  }
+  .btn-emergency {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg
+    hover:bg-red-500 transition-all duration-200 shadow-lg shadow-red-600/30;
+  }
+  .card {
+    @apply bg-brand-surface border border-brand-border rounded-xl p-6 transition-all duration-300;
+  }
+  .card-hover {
+    @apply card hover:-translate-y-1 hover:border-brand-border-light hover:shadow-lg hover:shadow-black/20;
+  }
+  .card-elevated {
+    @apply bg-brand-elevated border border-brand-border-light rounded-xl p-6;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 bg-brand-dark border border-brand-border rounded-lg text-text-primary placeholder:text-text-muted
+    focus:outline-none focus:border-accent-green/50 focus:ring-1 focus:ring-accent-green/30 transition-all duration-200;
+  }
+  .label-field {
+    @apply block text-sm font-medium text-text-secondary mb-2;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full;
+  }
+  .badge-green {
+    @apply badge bg-accent-green/10 text-accent-green border border-accent-green/20;
+  }
+  .badge-cyan {
+    @apply badge bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20;
+  }
+  .badge-red {
+    @apply badge bg-red-500/10 text-red-400 border border-red-500/20;
+  }
+  .badge-yellow {
+    @apply badge bg-yellow-500/10 text-yellow-400 border border-yellow-500/20;
+  }
+  .badge-gray {
+    @apply badge bg-brand-elevated text-text-muted border border-brand-border;
+  }
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+  .glass-surface {
+    @apply bg-brand-surface/80 backdrop-blur-xl border border-brand-border;
+  }
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+  .status-dot-active {
+    @apply status-dot bg-accent-green animate-pulse-slow;
+  }
+  .status-dot-busy {
+    @apply status-dot bg-yellow-400;
+  }
+  .status-dot-offline {
+    @apply status-dot bg-text-muted;
+  }
+  .metric-value {
+    @apply text-3xl md:text-4xl font-bold text-text-primary tracking-tight;
+  }
+  .metric-label {
+    @apply text-sm text-text-muted font-medium mt-1;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-green to-accent-cyan bg-clip-text text-transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
